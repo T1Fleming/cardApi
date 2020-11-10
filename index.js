@@ -7,16 +7,16 @@ function generateCardDeck() {
     //     displayedValue: 1,
     //     subValue: 0
     // }
-    
+
     const subValueMap = {
         0: 'Diamonds',
         1: 'Clubs',
         2: 'Hearts',
         3: 'Spades'
     }
-    
+
     const valueMap = {
-        0: '1',
+        0: 'Ace',
         1: '2',
         2: '3',
         3: '4',
@@ -28,8 +28,7 @@ function generateCardDeck() {
         9: '10',
         10: 'Jack',
         11: 'Queen',
-        12: 'King',
-        13: 'Ace'
+        12: 'King'
     }
 
     const numberOfSuites = Object.keys(subValueMap).length
