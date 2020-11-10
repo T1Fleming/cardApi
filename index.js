@@ -1,5 +1,3 @@
-let deckOfCards = []
-
 function generateCardDeck() {
     // const cardTemplate = {
     //     displayedSuite: 'v', //hearts, spades, diamonds, clubs
@@ -7,6 +5,7 @@ function generateCardDeck() {
     //     displayedValue: 1,
     //     subValue: 0
     // }
+    let deckOfCards = []
 
     const subValueMap = {
         0: 'Diamonds',
@@ -45,6 +44,7 @@ function generateCardDeck() {
         }
     }
 
+    return deckOfCards
 }
-generateCardDeck()
-console.log(deckOfCards)
+
+console.log(generateCardDeck())
