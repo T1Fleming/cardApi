@@ -1,3 +1,9 @@
+function getRandomInt(max) { //Exclusive
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+// All functions take type:string as input for now!
+
 function generateCardDeck() {
     // const cardTemplate = {
     //     displayedSuite: 'v', //hearts, spades, diamonds, clubs
@@ -47,6 +53,39 @@ function generateCardDeck() {
     return deckOfCards
 }
 
+function shuffleCardDeck(currentDeck) {
+    const currentDeckArray = JSON.parse(currentDeck)
+    const lenOfCurrentDeckArray = currentDeckArray.length
+    let currLenOfDeck = lenOfCurrentDeckArray
+    let shuffledDeck = []
+
+    for (i = 0; i < lenOfCurrentDeckArray; i++) {
+        // Pick random card
+        const indexOfRandomCard = getRandomInt(currLenOfDeck)
+        const randomCard = currentDeckArray[indexOfRandomCard]
+
+        // Add card to new deck
+        shuffledDeck.push(randomCard)
+
+        // Remove card from original deck
+        currentDeckArray.splice(indexOfRandomCard, 1)
+
+        // Lower the deck count
+        currLenOfDeck--
+    }
+
+    return shuffledDeck
+}
+
+function drawCards(currentDeck, amountToDraw){
+    return {
+        deckAfterDraw: [],
+        cardsDrawn: []
+    }
+}
+
 module.exports = {
-    generateCardDeck: generateCardDeck
+    generateCardDeck: generateCardDeck,
+    shuffleCardDeck: shuffleCardDeck,
+    drawCards: drawCards
 }
