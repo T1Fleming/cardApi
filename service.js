@@ -47,4 +47,6 @@ function generateCardDeck() {
     return deckOfCards
 }
 
-console.log(generateCardDeck())
+module.exports = {
+    generateCardDeck: generateCardDeck
+}
