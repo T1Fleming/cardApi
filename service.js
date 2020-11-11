@@ -1,8 +1,12 @@
+// All functions take type:string as input for now!
+
+// Helper Functions
 function getRandomInt(max) { //Exclusive
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-// All functions take type:string as input for now!
+
+// Stateless Routes
 
 function generateCardDeck() {
     // const cardTemplate = {
@@ -77,15 +81,39 @@ function shuffleCardDeck(currentDeck) {
     return shuffledDeck
 }
 
-function drawCards(currentDeck, amountToDraw){
-    return {
-        deckAfterDraw: [],
-        cardsDrawn: []
+function drawCardsFromTopofDeck(currentDeck, amountToDraw) {
+
+    let currentDeckObject = JSON.parse(currentDeck)
+    const lenCurrentDeckObject = currentDeckObject.length
+    let cardsDrawn = []
+
+    // Check we dont overdraw
+    if (amountToDraw <= lenCurrentDeckObject) {
+        for (i = 0; i < amountToDraw; i++) {
+            cardsDrawn.push(currentDeckObject.pop())
+        }
+        return {
+            deckAfterDraw: currentDeckObject,
+            cardsDrawn: cardsDrawn
+        }
+    }
+    else {
+        return 'Error: Overdrawn'
     }
 }
+
+function drawSelectedCards(){
+
+}
+
+function addCardsToDeck(){
+    
+}
+
+// Stateful Routes
 
 module.exports = {
     generateCardDeck: generateCardDeck,
     shuffleCardDeck: shuffleCardDeck,
-    drawCards: drawCards
+    drawCardsFromTopofDeck: drawCardsFromTopofDeck
 }
